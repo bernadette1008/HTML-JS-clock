@@ -11,15 +11,20 @@
         }
         body {
             width: 100%;
-            height: 960px;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        #body {
+        #clock-body {
             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 시계 크기 */
             width: 500px;
             height: 500px;
+
             background-color: rgba(0, 0, 0, 0);
             border: 3px solid black;
             border-radius: 100%;
@@ -42,8 +47,9 @@
             height: 12px;
             border: 1px solid black;
             border-radius: 10px;
-            transform: translate(0px, -4px);
             z-index: 4;
+            /* 센터 위치 조정 */
+            transform: translate(0px, -6px);
         }
         #hour {
             position: absolute;
@@ -52,7 +58,8 @@
             border-radius: 10px;
             background-color: red;
             transform-origin: top;
-            transition-duration: 1s;
+            /* duration을 활성화할 경우 침이 더욱 부드럽게 움직임 */
+            /* transition-duration: 1s; */
             z-index: 3;
         }
         #minute {
@@ -62,7 +69,7 @@
             border-radius: 10px;
             background-color: blue;
             transform-origin: top;
-            transition-duration: 1s;
+            /* transition-duration: 1s; */
             z-index: 2;
         }
         #second {
@@ -78,7 +85,7 @@
     </style>
 </head>
 <body onload="clock()">
-    <div id="body">
+    <div id="clock-body">
         <div id="center">
             <div id="hour"></div>
             <div id="minute"></div>
@@ -93,6 +100,8 @@
         let maxHour = 0;
         let maxMinute = 0;
         let maxSecond = 0;
+        // 프레임 문제로 최대 각도는 180deg가 아닌 174deg임
+        // 단 컴퓨터마다 다를 수 있으므로 상황에 따라 수정바람
         let checkH = 174;
         let checkM = 174;
         let checkS = 174;
