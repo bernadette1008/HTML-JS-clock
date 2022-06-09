@@ -123,7 +123,9 @@
                 maxHour += 360;
                 checkH += 360;
             }
-            console.log(secondT+ 'and' + maxSecond);
+            // 각도 확인용
+            console.log('secondT = '+ secondT + 'and maxSecond = ' + maxSecond);
+            
             hour.style.transform = 'rotate(' + hourT + 'deg)';
             minute.style.transform = 'rotate(' + minuteT + 'deg)';
             second.style.transform = 'rotate(' + secondT+ 'deg)';
