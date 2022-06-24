@@ -23,6 +23,12 @@
             justify-content: center;
             align-items: center;
         }
+        #text{
+            font-family: 'EF_WAKEUP';
+            position: absolute;
+            top: 30px;
+            font-size: larger;
+        }
         #body {
             position: absolute;
             width: 500px;
@@ -94,6 +100,7 @@
     </style>
 </head>
 <body onload="clock()">
+    <div id="text">인공지능 소프트웨어과 김용재</div>
     <div id="body">
         <div id="center">
             <div id="hour"></div>
@@ -126,15 +133,15 @@
                 maxSecond += 360;
                 checkS += 360;
             }
-            if(minuteT >= checkM){
+            if(minuteT >= checkM && currentDate.getSeconds() >= 59){
                 maxMinute += 360;
                 checkM += 360;
             }
-            if(hourT >= checkH){
+            if(hourT >= checkH && currentDate.getMinutes() >= 59){
                 maxHour += 360;
                 checkH += 360;
             }
-            console.log(secondT+ 'and' + maxSecond);
+            console.log(checkM+ 'and' + maxMinute);
             hour.style.transform = 'rotate(' + hourT + 'deg)';
             minute.style.transform = 'rotate(' + minuteT + 'deg)';
             second.style.transform = 'rotate(' + secondT+ 'deg)';
